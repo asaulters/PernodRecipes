@@ -1,0 +1,14 @@
+.formInputs{
+    margin: 25px auto;
+    display: grid;
+    grid-template-columns:  33% 33% 33%;
+}
+.liquorsDiv{
+    grid-column: 1/2;
+}
+.liqueursDiv{
+    grid-column: 2/3;
+}
+.mixersDiv{
+    grid-column: 3/4;
+}
