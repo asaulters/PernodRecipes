@@ -17,6 +17,10 @@ const reducer = (state, action) => {
                 ...state,
                 liquor: [...state.liquors, action.payload],
             };
+        case 'removeInput':
+            return {
+                
+            }
 
 }
 
