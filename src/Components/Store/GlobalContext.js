@@ -15,7 +15,7 @@ const reducer = (state, action) => {
         case 'addInput':
             return {
                 ...state,
-
+                liquor: [...state.liquors, action.payload],
             };
 
 }
@@ -27,6 +27,6 @@ const GlobalContextProvider = ({ children }) => {
         {children}
       </GlobalContext.Provider>
     );
-  };
+};
   
-  export default GlobalContextProvider;
+export default GlobalContextProvider;
