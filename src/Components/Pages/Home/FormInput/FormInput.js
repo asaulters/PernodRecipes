@@ -2,21 +2,23 @@ import React, {useState} from 'react';
 
 import classes from './FormInput.module.css';
 
+import InputList from '../../../UI/InputList/InputList';
+
 const FormInput = () => {
 
-    // const[liquors, setLiquors] = useState([])
+    const[liquors, setLiquors] = useState([])
 
     let liquorInputs = [];
-    let liqueurInputs = [];
-    let mixerInputs = [];
+    let liqueurInputs = ['test2', 'test3'];
+    let mixerInputs = ['test2', 'test3'];
 
     const addLiquor =(e) => {
         e.preventDefault();
         let liquor= document.getElementById('liquorInput').value;
-        console.log(liquor);
         liquorInputs.push(liquor);
         document.getElementById('liquorInput').value = '';
         console.log(liquorInputs);
+        // setLiquors(liqueurInputs);
     }
 
     const addLiqueur = (e) =>{
@@ -83,14 +85,14 @@ const FormInput = () => {
                 </div>
             </div>
             <div className={classes.inputsDiv}>
-                <div className={classes.liqInputsDiv}>
-
+                <div className={classes.liquorInputsDiv}>
+                    <InputList inputs={liquorInputs}/>
                 </div>
-                <div className={classes.liqInputsDiv}>
-
+                <div className={classes.liqueurInputsDiv}>
+                    <InputList inputs={liqueurInputs} />
                 </div>
-                <div className={classes.liqInputsDiv}>
-
+                <div className={classes.mixerInputsDiv}>
+                    <InputList inputs={mixerInputs} />
                 </div>
 
             </div>
