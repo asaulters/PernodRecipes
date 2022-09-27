@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 
 import classes from './FormInput.module.css';
 
@@ -7,6 +7,8 @@ import InputList from '../../../UI/InputList/InputList';
 const FormInput = () => {
 
     const[liquors, setLiquors] = useState([])
+
+    
 
     let liquorInputs = [];
     let liqueurInputs = ['test2', 'test3'];
