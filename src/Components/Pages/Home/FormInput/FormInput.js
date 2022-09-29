@@ -32,6 +32,10 @@ const FormInput = () => {
         console.log(liqueurInputs);
     }
 
+    useEffect(() => {
+        console.log('hello')
+    }, addLiquor)
+
     const addMixer = (e) =>{
         e.preventDefault();
         let mixer = document.getElementById('mixerInput').value;
