@@ -8,7 +8,7 @@ const FormInput = () => {
 
     const[liquors, setLiquors] = useState([])
 
-    
+    useEffect
 
     let liquorInputs = [];
     let liqueurInputs = ['test2', 'test3'];
@@ -16,11 +16,19 @@ const FormInput = () => {
 
     const addLiquor =(e) => {
         e.preventDefault();
+
         let liquor= document.getElementById('liquorInput').value;
-        liquorInputs.push(liquor);
+        var liqArr = ['']
+        // liqArr.push(...liquor);
+        liquorInputs.push(liquor)
+        console.log(liquorInputs)
         document.getElementById('liquorInput').value = '';
-        console.log(liquorInputs);
-        // setLiquors(liqueurInputs);
+
+    }
+
+    const addLiqInput = () =>{
+        setLiquors(liquorInputs);
+        console.log(liquors)
     }
 
     const addLiqueur = (e) =>{
@@ -32,9 +40,10 @@ const FormInput = () => {
         console.log(liqueurInputs);
     }
 
-    useEffect(() => {
-        console.log('hello')
-    }, addLiquor)
+    // useEffect(() => {
+    //     for(let i = 0; i<)
+    //     console.log('you added')
+    // }, addLiquor)
 
     const addMixer = (e) =>{
         e.preventDefault();
