@@ -1,57 +1,36 @@
 import React, {useState, useEffect} from 'react';
+import { useGlobalContext } from '../../../Store/GlobalContext';
 
 import classes from './FormInput.module.css';
 
-import InputList from '../../../UI/InputList/InputList';
+
+import LiqList from '../Inputs/CurLiquor/CurrentLiquorInputs';
+import LiqueurList from '../Inputs/CurLiqueur/CurrLiqueurInp';
+import MixerList from '../Inputs/CurMixer/CurrMixerInp';
 
 const FormInput = () => {
+    const {state, dispatch} = useGlobalContext();
 
-    const[liquors, setLiquors] = useState([])
-
-    useEffect
-
-    let liquorInputs = [];
-    let liqueurInputs = ['test2', 'test3'];
-    let mixerInputs = ['test2', 'test3'];
 
     const addLiquor =(e) => {
         e.preventDefault();
-
-        let liquor= document.getElementById('liquorInput').value;
-        var liqArr = ['']
-        // liqArr.push(...liquor);
-        liquorInputs.push(liquor)
-        console.log(liquorInputs)
+        let liquor= document.getElementById('liquorInput').value
+        {dispatch({type: 'addLiquorInput', payload: liquor})}
         document.getElementById('liquorInput').value = '';
-
-    }
-
-    const addLiqInput = () =>{
-        setLiquors(liquorInputs);
-        console.log(liquors)
     }
 
     const addLiqueur = (e) =>{
         e.preventDefault();
         let liqueur = document.getElementById('liqueurInput').value;
-        console.log(liqueur);
-        liqueurInputs.push(liqueur);
+        {dispatch({type: 'addLiqueurInput', payload:liqueur})}
         document.getElementById('liqueurInput').value = '';
-        console.log(liqueurInputs);
     }
-
-    // useEffect(() => {
-    //     for(let i = 0; i<)
-    //     console.log('you added')
-    // }, addLiquor)
 
     const addMixer = (e) =>{
         e.preventDefault();
         let mixer = document.getElementById('mixerInput').value;
-        console.log(mixer);
-        mixerInputs.push(mixer);
+        {dispatch({type:'addMixerInput', payload:mixer})}
         document.getElementById('mixerInput').value = '';
-        console.log(mixerInputs);
     }
 
 
@@ -101,13 +80,13 @@ const FormInput = () => {
             </div>
             <div className={classes.inputsDiv}>
                 <div className={classes.liquorInputsDiv}>
-                    <InputList inputs={liquorInputs}/>
+                    <LiqList />
                 </div>
                 <div className={classes.liqueurInputsDiv}>
-                    <InputList inputs={liqueurInputs} />
+                    <LiqueurList />
                 </div>
                 <div className={classes.mixerInputsDiv}>
-                    <InputList inputs={mixerInputs} />
+                    <MixerList />
                 </div>
 
             </div>

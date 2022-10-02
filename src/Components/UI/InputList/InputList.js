@@ -7,7 +7,7 @@ const InputList = (props) => {
   return (
     <div>
         {props.inputs.map((item, i) =>(
-            <div className={classes.listDiv} i={Math.random()}>
+            <div className={classes.listDiv} key={i}>
                 <h4>{item}</h4>
             </div>)
         )}

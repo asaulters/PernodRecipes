@@ -1,4 +1,4 @@
-import React, {createContext, useContext, useReducer} from 'react';
+import React, {createContext, useContext, useReducer, useEffect} from 'react';
 
 const GlobalContext = createContext();
 
@@ -12,20 +12,40 @@ const initialState= {
 
 const reducer = (state, action) => {
     switch(action.type){
-        case 'addInput':
+        case 'addLiquorInput':
             return {
                 ...state,
-                liquor: [...state.liquors, action.payload],
-            };
-        case 'removeInput':
-            return {
+                liquors: [...state.liquors, action.payload],
                 
-            }
+            };
+        case 'addLiqueurInput':
+            return {
+                ...state,
+                liqueurs: [...state.liqueurs, action.payload]
+            };
+        case 'addMixerInput':
+            return {
+                ...state,
+                mixers: [...state.mixers, action.payload]
+            }        
+        // case 'removeInput':
+        //     return {
+        //         ...state,
+        //         liquor: [...]
+        //     };
+        default:
+            return state;    
 
-}
+    }
+};
+
 
 const GlobalContextProvider = ({ children }) => {
     const [state, dispatch] = useReducer(reducer, initialState);
+
+
+
+
     return (
       <GlobalContext.Provider value={{ state, dispatch }}>
         {children}
