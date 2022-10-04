@@ -11,27 +11,42 @@ import MixerList from '../Inputs/CurMixer/CurrMixerInp';
 const FormInput = () => {
     const {state, dispatch} = useGlobalContext();
 
+    const tags ={
+        liquors: [],
+        liqueurs: [],
+        mixers: []
+    }
 
     const addLiquor =(e) => {
         e.preventDefault();
-        let liquor= document.getElementById('liquorInput').value
-        {dispatch({type: 'addLiquorInput', payload: liquor})}
+        let liquor= document.getElementById('liquorInput').value;
+        {dispatch({type: 'addLiquorInput', payload: liquor})};
+        tags.liquors.push(liquor);
+        console.log(tags.liquors)
         document.getElementById('liquorInput').value = '';
     }
 
     const addLiqueur = (e) =>{
         e.preventDefault();
         let liqueur = document.getElementById('liqueurInput').value;
-        {dispatch({type: 'addLiqueurInput', payload:liqueur})}
+        {dispatch({type: 'addLiqueurInput', payload:liqueur})};
+        tags.liqueurs.push(liqueur);
         document.getElementById('liqueurInput').value = '';
     }
 
     const addMixer = (e) =>{
         e.preventDefault();
         let mixer = document.getElementById('mixerInput').value;
-        {dispatch({type:'addMixerInput', payload:mixer})}
+        {dispatch({type:'addMixerInput', payload:mixer})};
+        tags.mixers.push(mixer);
+        
         document.getElementById('mixerInput').value = '';
     }
+
+    const addTotalTags = (e)=> {
+        e.preventDefault();
+    }
+    
 
 
   return (
@@ -90,7 +105,7 @@ const FormInput = () => {
                 </div>
 
             </div>
-            <button>Submit</button>
+            <button onClick={addTotalTags}>Submit</button>
         </form>
     </div>
   )

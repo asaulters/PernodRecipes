@@ -9,8 +9,11 @@ const CurrLiqueurInp = () => {
   return (
     <div className={classes.liqueurInputsDiv}>
         {state.liqueurs.map((inputs, i) => (
-            <div id='inputOptions' key={i}>
+          <div className={classes.Inputs} key={i}>
                 <h3>{inputs}</h3>
+                <button 
+                    onClick={() => dispatch({type: 'removeLiqueurInput', payload: inputs})}
+                >&times;</button>
             </div>
         ))}
     </div>

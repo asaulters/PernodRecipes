@@ -7,7 +7,8 @@ export const useGlobalContext = () => useContext(GlobalContext);
 const initialState= {
     liquors: [],
     liqueurs: [],
-    mixers: []
+    mixers: [],
+    totalTags: []
 }
 
 const reducer = (state, action) => {
@@ -27,12 +28,28 @@ const reducer = (state, action) => {
             return {
                 ...state,
                 mixers: [...state.mixers, action.payload]
-            }        
-        // case 'removeInput':
-        //     return {
-        //         ...state,
-        //         liquor: [...]
-        //     };
+            };
+        case  'totalTagsAdd':
+            return {
+                ...state,
+                totalTags: [...state.totalTags, action.payload],
+                
+            }          
+        case 'removeLiquorInput':
+            return {
+                ...state,
+                liquors: state.liquors.filter((s) => s !== action.payload) 
+            };
+        case 'removeLiqueurInput':
+            return {
+                ...state,
+                liqueurs: state.liquors.filter((s) => s !== action.payload) 
+            };
+        case 'removeMixerInput':
+            return {
+                ...state,
+                mixers: state.liquors.filter((s) => s !== action.payload) 
+            };
         default:
             return state;    
 

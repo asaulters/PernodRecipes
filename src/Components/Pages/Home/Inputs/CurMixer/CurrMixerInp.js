@@ -8,8 +8,11 @@ const CurrMixerInp = () => {
   return (
     <div className={classes.MixerInputs}>
         {state.mixers.map((inputs, i) => (
-            <div id='mixerOption' key={i}>
+          <div className={classes.Inputs} key={i}>
                 <h3>{inputs}</h3>
+                <button 
+                    onClick={() => dispatch({type: 'removeMixernput', payload: inputs})}
+                >&times;</button>
             </div>
         ))}
     </div>
