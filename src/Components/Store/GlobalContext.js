@@ -29,9 +29,12 @@ const reducer = (state, action) => {
                 ...state,
                 mixers: [...state.mixers, action.payload]
             };
-        case  'totalTagsAdd':
+        case  'addTotalTags': 
             return {
                 ...state,
+                // ...initialState.liquors,
+                // ...initialState.liqueurs,
+                // ...initialState.mixers,
                 totalTags: [...state.totalTags, action.payload],
                 
             }          
@@ -49,7 +52,7 @@ const reducer = (state, action) => {
             return {
                 ...state,
                 mixers: state.liquors.filter((s) => s !== action.payload) 
-            };
+            }
         default:
             return state;    
 
@@ -59,9 +62,6 @@ const reducer = (state, action) => {
 
 const GlobalContextProvider = ({ children }) => {
     const [state, dispatch] = useReducer(reducer, initialState);
-
-
-
 
     return (
       <GlobalContext.Provider value={{ state, dispatch }}>
