@@ -1,0 +1,30 @@
+[
+    {
+    "name": "Moscow Mule",
+    "liquors": ["Vodka"],
+    "liqueurs": [""],
+    "mixers": ["Ginger Beer", "lime Juice"],
+    "type": "drink"
+}, 
+{
+    "name": "Pickleback",
+    "liquors": ["Jameson"],
+    "liqueurs": ["Peach"],
+    "mixers": ["Sour"],
+    "type": "shot"
+},
+{
+    "name": "Margarita",
+    "liquors": ["Altos"],
+    "liqueurs": ["Triple Sec"],
+    "mixers": ["OJ", "Sour"],
+    "type": "drink"
+},
+{
+    "name": "Long Island Iced Tea",
+    "liquors": ["Vodka", "Gin", "Rum", "Tequila"],
+    "liqueurs": [""],
+    "mixers": ["coke", "sour"],
+    "type": "drink"
+}
+]

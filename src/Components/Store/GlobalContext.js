@@ -8,11 +8,13 @@ const initialState= {
     liquors: [],
     liqueurs: [],
     mixers: [],
-    totalTags: []
+    drinks: []
 }
 
 const reducer = (state, action) => {
     switch(action.type){
+        case 'loadDrinks':
+            return {...state, drinks: action.payload}
         case 'addLiquorInput':
             return {
                 ...state,

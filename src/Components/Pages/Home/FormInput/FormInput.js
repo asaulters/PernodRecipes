@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import { useGlobalContext } from '../../../Store/GlobalContext';
 
 import classes from './FormInput.module.css';
-
+import drinkList from '../../../../Data/drinks.json'
 
 import LiqList from '../Inputs/CurLiquor/CurrentLiquorInputs';
 import LiqueurList from '../Inputs/CurLiqueur/CurrLiqueurInp';
@@ -11,12 +11,17 @@ import MixerList from '../Inputs/CurMixer/CurrMixerInp';
 const FormInput = () => {
     const {state, dispatch} = useGlobalContext();
 
+    const liqDrinks = [];
+    const liquDrinks = [];
+    const mixerDrinks = [];
 
     const addLiquor =(e) => {
         e.preventDefault();
         let liquor= document.getElementById('liquorInput').value;
         dispatch({type: 'addLiquorInput', payload: liquor})
         document.getElementById('liquorInput').value = '';
+        var liqDrinks= drinkList.filter((drink) => drink.liquors.includes(liquor));
+        console.log(liqDrinks)
     }
 
     const addLiqueur = (e) =>{
@@ -35,9 +40,10 @@ const FormInput = () => {
 
     const submitTotalTags = (e)=> {
         e.preventDefault();
-        console.log(state)
-        // dispatch({type: 'addTotalTags', payload:tags})
-        // console.log(tags)
+        console.log(state);
+        // console.log(drinkList);
+        // drinkList.filter
+
     }
     
 
