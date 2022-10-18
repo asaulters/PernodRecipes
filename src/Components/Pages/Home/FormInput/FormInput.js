@@ -20,8 +20,7 @@ const FormInput = () => {
         let liquor= document.getElementById('liquorInput').value;
         dispatch({type: 'addLiquorInput', payload: liquor})
         document.getElementById('liquorInput').value = '';
-        var liqDrinks= drinkList.filter((drink) => drink.liquors.includes(liquor));
-        console.log(liqDrinks)
+        console.log(state)
     }
 
     const addLiqueur = (e) =>{
@@ -29,6 +28,7 @@ const FormInput = () => {
         let liqueur = document.getElementById('liqueurInput').value;
         dispatch({type: 'addLiqueurInput', payload:liqueur});
         document.getElementById('liqueurInput').value = '';
+        console.log(state)
     }
 
     const addMixer = (e) =>{
@@ -36,15 +36,34 @@ const FormInput = () => {
         let mixer = document.getElementById('mixerInput').value;
         dispatch({type:'addMixerInput', payload:mixer});
         document.getElementById('mixerInput').value = '';
+        console.log(state)
     }
 
-    const submitTotalTags = (e)=> {
+
+    const submitTotalTags = (e, inputs)=> {
         e.preventDefault();
-        console.log(state);
-        // console.log(drinkList);
-        // drinkList.filter
+        for(let i =0; i< drinkList.length; i++){
+            console.log(drinkList[i].liquors)
+            let filteredLiquors = state.liquors;
+            let filteredLiqueurs = state.liqueurs;
+            let filteredMixers = state.mixers;
+            let liqStrs = drinkList[i].liquors.toString();
+            let liquStrs = drinkList[i].liqueurs.toString();
+            let mixStrs = drinkList[i].mixers.toString();
+            if(liqStrs.includes(filteredLiquors)){
+                console.log('includes here!')
+            } else if(liquStrs.includes(filteredLiqueurs)){
+                console.log('liqu str is true')
+            } else if(mixStrs.includes(filteredMixers)){
+                console.log('yeahhh buddy!!!')
+            }
+            
+        }
+        
 
     }
+
+
     
 
 
