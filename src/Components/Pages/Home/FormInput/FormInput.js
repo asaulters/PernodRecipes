@@ -40,23 +40,36 @@ const FormInput = () => {
     }
 
 
-    const submitTotalTags = (e, inputs)=> {
+    const submitTotalTags = (e)=> {
         e.preventDefault();
-        for(let i =0; i< drinkList.length; i++){
-            console.log(drinkList[i].liquors)
+        for(const drink of drinkList){
             let filteredLiquors = state.liquors;
             let filteredLiqueurs = state.liqueurs;
             let filteredMixers = state.mixers;
-            let liqStrs = drinkList[i].liquors.toString();
-            let liquStrs = drinkList[i].liqueurs.toString();
-            let mixStrs = drinkList[i].mixers.toString();
-            if(liqStrs.includes(filteredLiquors)){
-                console.log('includes here!')
-            } else if(liquStrs.includes(filteredLiqueurs)){
-                console.log('liqu str is true')
-            } else if(mixStrs.includes(filteredMixers)){
-                console.log('yeahhh buddy!!!')
+
+            // console.log(drink);
+            // console.log(state)
+
+            let drinkLiq = drink.liquors.toString();
+            let drinkLiqu = drink.liqueurs.toString();
+            let drinkMix = drink.mixers.toString();
+
+            if(drinkLiq.includes(filteredLiquors)){
+                const filteredLiqDrink = drinkList.filter((drink) => {
+                    drinkLiq.includes(filteredLiquors);
+                })
+                console.log(filteredLiquors + ' is found!')
+                console.log(filteredLiqDrink)
+            } else if(drinkLiqu.includes(filteredLiqueurs)){
+                console.log(filteredLiqueurs + ' liqu str is true')
+            } else if(drinkMix.includes(filteredMixers)){
+                console.log(filteredMixers + ' yeahhh buddy!!!');
+                
+            } else {
+                console.log('not today!')
             }
+
+
             
         }
         
