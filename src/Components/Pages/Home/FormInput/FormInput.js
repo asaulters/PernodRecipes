@@ -42,6 +42,9 @@ const FormInput = () => {
 
     const submitTotalTags = (e)=> {
         e.preventDefault();
+
+        
+        let drinkLiqArr = [];
         for(const drink of drinkList){
             let filteredLiquors = state.liquors;
             let filteredLiqueurs = state.liqueurs;
@@ -58,6 +61,7 @@ const FormInput = () => {
                 const filteredLiqDrink = drinkList.filter((drink) => {
                     drinkLiq.includes(filteredLiquors);
                 })
+
                 console.log(filteredLiquors + ' is found!')
                 console.log(filteredLiqDrink)
             } else if(drinkLiqu.includes(filteredLiqueurs)){
