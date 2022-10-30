@@ -43,38 +43,40 @@ const FormInput = () => {
     const submitTotalTags = (e)=> {
         e.preventDefault();
 
-        
-        let drinkLiqArr = [];
-        for(const drink of drinkList){
-            let filteredLiquors = state.liquors;
-            let filteredLiqueurs = state.liqueurs;
-            let filteredMixers = state.mixers;
+        for (let i =0; i<drinkList.length; i++){
+            // user inputs
+            let userInputLiquors = state.liquors;
+            let userInputLiqueurs = state.liqueurs;
+            let userInputMixers = state.mixers;
 
-            // console.log(drink);
-            // console.log(state)
+            // drinkList drinks var
+            let drinkLiq = drinkList[i].liquors.toString();
+            let drinkLiqu = drinkList[i].liqueurs.toString();
+            let drinkMix = drinkList[i].mixers.toString();
 
-            let drinkLiq = drink.liquors.toString();
-            let drinkLiqu = drink.liqueurs.toString();
-            let drinkMix = drink.mixers.toString();
+            // checking for matches
 
-            if(drinkLiq.includes(filteredLiquors)){
-                const filteredLiqDrink = drinkList.filter((drink) => {
-                    drinkLiq.includes(filteredLiquors);
-                })
-
-                console.log(filteredLiquors + ' is found!')
-                console.log(filteredLiqDrink)
-            } else if(drinkLiqu.includes(filteredLiqueurs)){
-                console.log(filteredLiqueurs + ' liqu str is true')
-            } else if(drinkMix.includes(filteredMixers)){
-                console.log(filteredMixers + ' yeahhh buddy!!!');
-                
+            if ( drinkLiq.includes(userInputLiquors) && drinkLiqu.includes(userInputLiquors) && drinkMix.includes(userInputMixers)){
+                console.log(drinkList[i].name)
             } else {
-                console.log('not today!')
+                console.log('nope')
             }
 
-
-            
+            // if(userInputLiquors == ""){
+            //     console.log('empty')
+            // } else if (drinkLiq.includes(userInputLiquors) ){
+            //     console.log(userInputLiquors + ' is found! in ' + drinkList[i].name.toString())
+            // }; 
+            // if(userInputLiqueurs == ""){
+            //     console.log('empty Liqueur')
+            // } else if(drinkLiqu.includes(userInputLiqueurs)){
+            //     console.log(userInputLiqueurs + ' is found! in ' + drinkList[i].name.toString())
+            // };
+            // if (userInputMixers ==""){
+            //     console.log('empty mixers')
+            // } else if(drinkMix.includes(userInputMixers)){
+            //     console.log(userInputMixers + ' is found! in ' + drinkList[i].name.toString())
+            // }
         }
         
 
